@@ -1,0 +1,27 @@
+{% load static compress i18n %}
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>HFinder</title>
+    {% compress css %}      
+        <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">  
+        <link rel="stylesheet" href="{% static 'scss/global.scss' %}">  
+    {% endcompress %}
+</head>
+{% block header %}
+
+
+{% endblock header %}
+
+
+{% block content %}
+ 
+
+{% endblock content %}
+
+{% block footer %}
+Chat Rooms
+{% endblock footer %}
