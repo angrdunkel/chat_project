@@ -54,7 +54,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    'compressor',
+    
     #apps
     'userprofiles',
     'chat_rooms'

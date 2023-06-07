@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static compress i18n %}
+{% block header %}
+<div class="container-fluid">
+    <div class="btn-group" role="group" aria-label="Basic example">
+    
+        {% if request.user.is_authenticated %}
+            <a type="button" class="btn btn-primary">{% trans "Logout" %}</a>
+        {% else %}
+            <a href="{% url 'login' %}" type="button" class="btn btn-primary">{% trans "Sign in" %}</a>        
+            <a href="{% url 'user_registration' %}" type="button" class="btn btn-primary">{% trans "Sign up" %}</a>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock header %}
