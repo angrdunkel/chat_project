@@ -1,4 +1,7 @@
 from django.contrib.auth import get_user_model
+from random import choice
+from chat_rooms.models import Room
+
 User = get_user_model()
 
 class AjaxMixin:
@@ -27,13 +30,7 @@ class CreateViewMixin(TemplateViewMixin):
         code = ''.join([choice(allowed_chars) for i in range(size)])
         return "".join([self.username_prefix, '-', code[0:4], '-', code[4:8]])
     
-    def get_crypto_file_user(self, user):
-        if CryptoUserFile.objects.filter(user=user).exists():
-            return CryptoUserFile.objects.get(user=user)
-        else:
-            print(user)
-            create_crypto_user = CryptoUserFile(
-                user=user,
-            )
-            create_crypto_user.save()
-            return create_crypto_user
+class ProfileViewMixins(TemplateViewMixin):
+    
+    def get_user_rooms(self):       
+        return Room.objects.all().filter(room_creator=self.request.user)

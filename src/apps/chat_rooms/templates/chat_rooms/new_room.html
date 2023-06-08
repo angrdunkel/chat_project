@@ -1,0 +1,11 @@
+{% extends "userprofiles/base.html" %}
+{% load static form_tags i18n %}
+{% block content %}
+<div class="container-fluid">
+    <form method="post" action="{{request.path}}" class="login-form" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.name|css_class:'form-control'|err_class:'is-invalid'|placeholder:form.name.label }}
+        <button class="btn btn-primary" type="submit">Create</button>
+    </form>
+</div>
+{% endblock content %}

@@ -1,0 +1,50 @@
+{% extends "userprofiles/base.html" %}
+{% load static form_tags %}
+{% block content %}
+<p>All Rooms</p>
+<div class="container-fluid">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">User</th>
+            <th scope="col">Date</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for room in object_list %}
+        <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{ room.name }}</td>
+            <td>{{ room.room_creator}}</td>
+            <td>{{ room.created_at}}</td>
+        </tr>
+        {% endfor %}      
+        </tbody>
+    </table>
+</div>
+<p>User Rooms</p>
+<div class="container-fluid">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">User</th>
+            <th scope="col">Date</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for room in user_rooms %}
+        <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{ room.name }}</td>
+            <td>{{ room.room_creator}}</td>
+            <td>{{ room.created_at}}</td>
+        </tr>
+        {% endfor %}      
+        </tbody>
+    </table>
+</div>
+{% endblock content %}

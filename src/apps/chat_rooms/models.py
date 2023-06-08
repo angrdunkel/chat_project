@@ -3,7 +3,7 @@ from django.conf import settings
 
 from django.utils.translation import gettext_lazy as _
 
-class Rooms(models.Model):
+class Room(models.Model):
     room_creator = models.ForeignKey(
        settings.AUTH_USER_MODEL,
         verbose_name=_("User"),
@@ -25,14 +25,14 @@ class Rooms(models.Model):
         return self.name
 
 
-class UserRooms(models.Model):
+class UsersRoom(models.Model):
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         verbose_name=_("User"),
         on_delete=models.CASCADE,
     )
     room = models.ForeignKey(
-        Rooms,
+        Room,
         verbose_name=_("Chat Room"),
         related_name='room',
         on_delete=models.CASCADE,
@@ -46,7 +46,7 @@ class UserRooms(models.Model):
 
 class Message(models.Model):
     room = models.ForeignKey(
-        Rooms,
+        Room,
         verbose_name=_("Chat Room"),
         related_name='room_message',
         on_delete=models.CASCADE,

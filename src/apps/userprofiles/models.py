@@ -27,7 +27,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         max_length=100, 
         unique=True
     )
-    is_active = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     first_name = models.CharField(
         _('First Name'),

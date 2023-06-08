@@ -5,7 +5,8 @@
     <div class="btn-group" role="group" aria-label="Basic example">
     
         {% if request.user.is_authenticated %}
-            <a type="button" class="btn btn-primary">{% trans "Logout" %}</a>
+            <a href="{% url 'logout' %}" type="button" class="btn btn-primary">{% trans "Logout" %}</a>
+            <a href="{% url 'room_create' %}" type="button" class="btn btn-primary 1js-create_chat-room-btn">{% trans "Create chat room" %}</a>
         {% else %}
             <a href="{% url 'login' %}" type="button" class="btn btn-primary">{% trans "Sign in" %}</a>        
             <a href="{% url 'user_registration' %}" type="button" class="btn btn-primary">{% trans "Sign up" %}</a>
